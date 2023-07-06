@@ -33,9 +33,9 @@ https://www.npmjs.com/package/react-toastify
 
 https://firebase.google.com/docs/auth/web/google-signin
 
-### Analyzing the Bundle Size
+### firebase image upload to cloud storage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+https://firebase.google.com/docs/storage/web/upload-files
 
 ### Making a Progressive Web App
 
