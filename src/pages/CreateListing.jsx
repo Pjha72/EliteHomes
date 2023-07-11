@@ -96,8 +96,9 @@ export default function CreateListing() {
     // let location;
     // if (geoLocation) {
     //   const response = await fetch(
-    //     `https://google-maps-geocoding.p.rapidapi.com/geocode/json?address=${address}&key=${process.env.NODE_ENV}`
-    //   );
+    //     // `https://google-maps-geocoding.p.rapidapi.com/geocode/json?address=${address}&key=${process.env.NODE_ENV}`
+    //     `https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%C4%B0zmir+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed?address=${address}&key=${process.env.NODE_ENV}`
+    //     );
     //   const data = await response.json();
     //   console.log(data);
     //   geoLocationenabled.lat = data.results[0]?.geometry.location.lat ?? 0;
@@ -167,6 +168,7 @@ export default function CreateListing() {
        ...formData,
         imgUrls,
        timestamp: serverTimestamp(),
+       userRef: auth.currentUser.uid,
      };
      delete formDataCopy.images;
      !formDataCopy.offer && delete formDataCopy.discountedPrice;
