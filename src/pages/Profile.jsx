@@ -62,12 +62,13 @@ export default function Profile() {
       let listing = [];
       querySnap.forEach((doc)=>{
         return listing.push({
-          i : doc.id,
+          id : doc.id,
           data:doc.data(),
         });
       });
       setListing(listing);
       setLoading(false);
+      
     }
     userFetchListing();
   }, [auth.currentUser.uid])
@@ -78,7 +79,7 @@ export default function Profile() {
     if(window.confirm("Are you sure you want to delete!")){
       await deleteDoc(doc(db,"listings", listingID))
      const updatedListings = listing.filter(
-      (listing)=> listing.id !== listingID
+      (listings)=> listings.id !== listingID
      );
      setListing(updatedListings);
      toast.success("Successfully deleted the listing!")
@@ -128,7 +129,7 @@ export default function Profile() {
               {listing.map((listing)=>(
                 <ListingItem  key={listing.id} id={listing.id} listing ={listing.data}
                 onDelete={() => onDelete(listing.id)}
-                  onEdit={() => onEdit(listing.id)}
+                onEdit={() => onEdit(listing.id)}
                 />
               ))}
             </ul>
