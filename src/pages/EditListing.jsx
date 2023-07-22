@@ -437,7 +437,7 @@ export default function EditListing() {
             </div>
           </div>
         </div>
-        {!offer && (
+        {offer && (
           <div className="flex items-center mb-6">
             <div className="">
               <p className="text-lg mt-6 font-semibold">Discounted Price</p>
