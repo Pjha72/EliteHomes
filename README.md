@@ -2,6 +2,8 @@
 
 #### This repository contains the source code for a real estate web application built with React. The application allows users to browse, sell, and buy homes. Below you will find important information on how to get started with the project and the various technologies used.
 
+<img src="../Realtor_Clone/src/assets/svg/Realtor-Application (2).png"/>
+
 ## Getting Started
 
 ### To run this project locally, follow these steps:
