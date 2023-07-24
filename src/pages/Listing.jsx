@@ -15,8 +15,9 @@ import {
   FaParking,
   FaChair,
 } from "react-icons/fa";
-import {getAuth} from "firebase/auth"
+import { getAuth } from "firebase/auth";
 import Contact from "../components/Contact";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 export default function Listing() {
   const auth = getAuth();
@@ -41,6 +42,8 @@ export default function Listing() {
   if (loading) {
     return <Spinner />;
   }
+
+  const position = [51.505, -0.09]
   return (
     <main>
       <Swiper
@@ -131,17 +134,31 @@ export default function Listing() {
           </ul>
           {listing.userRef !== auth.currentUser?.uid && !contactLandlord && (
             <div className="mt-6">
-              <button onClick={()=>setContactLandlord(true)} className="px-7 py-3 bg-blue-600 text-white font-medium text-sm uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg w-full text-center transition duration-150 ease-in-out">
+              <button
+                onClick={() => setContactLandlord(true)}
+                className="px-7 py-3 bg-blue-600 text-white font-medium text-sm uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg w-full text-center transition duration-150 ease-in-out"
+              >
                 Contact Landlord
               </button>
             </div>
           )}
           {contactLandlord && (
-
-            <Contact userRef={listing.userRef} listing={listing}/>
+            <Contact userRef={listing.userRef} listing={listing} />
           )}
         </div>
-        <div className="bg-blue-300 w-full h-[200px] lg-[400px] z-10 overflow-x-hidden"></div>
+        <div className="w-full h-[200px] lg:h-[400px] z-10 overflow-x-hidden mt-6 md:mt-0 md:ml-2" >
+          <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{height:"100%",width:"100%"}}>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position}>
+              <Popup>
+                A pretty CSS3 popup. <br /> Easily customizable.
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
       </div>
     </main>
   );

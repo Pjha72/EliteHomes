@@ -111,7 +111,7 @@ export default function CreateListing() {
     //     return;
     //   }
     // } else {
-    //   geoLocation.lat = latitude;
+      // geoLocation.lat = latitude;
     //   geoLocation.lng = longitude;
     // }
 
