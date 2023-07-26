@@ -26,13 +26,11 @@ export default function SignIn() {
     e.preventDefault();
     try {
       const auth = getAuth();;
-      const userCredentials = signInWithEmailAndPassword(auth,email,password);
+      const userCredentials = await signInWithEmailAndPassword(auth,email,password);
       if(userCredentials.user){
-        console.log(userCredentials.user);
-        
+        // console.log(userCredentials.user);
+        navigate("/");
       }
-      navigate("/");
-      
       
     } catch (error) {
       toast.error("Bad User Credentials!")

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { getAuth } from "firebase/auth";
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { db } from "../firebase"
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 export default function OAuth() {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ export default function OAuth() {
       // console.log(user);
 
       // check for the user 
-      const docRef = doc(db, "user", user.uid);
+      const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
 
       if(!docSnap.exists()){
@@ -28,9 +28,12 @@ export default function OAuth() {
           timestamp : serverTimestamp()
         })
       }
+      toast.success("Authenticate Successfully!!");
       navigate("/");
+      
     } catch (error) {
       toast.error("Could not authorize with Google");
+      
       // console.log(error);
     }
   }
