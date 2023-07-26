@@ -2,6 +2,7 @@
 
 #### This repository contains the source code for a real estate web application built with React. The application allows users to browse, sell, and buy homes. Below you will find important information on how to get started with the project and the various technologies used.
 
+![Realtor-Application (3)](https://github.com/Pjha72/EliteHomes/assets/88606641/b7311770-3dee-46cd-9398-e93d4306c426)
 
 ## Getting Started
 
